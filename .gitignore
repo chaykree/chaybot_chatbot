@@ -1,0 +1,8 @@
+# Titkos fájlok kizárása
+.streamlit/secrets.toml
+# Python által generált fájlok
+__pycache__/
+*.pyc
+# Virtuális környezetek
+venv/
+.venv/
