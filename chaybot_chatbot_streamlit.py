@@ -134,24 +134,3 @@ if prompt := st.chat_input("Tedd fel a kérdésedet..."):
                 print(f"Error during response generation: {e}") # Debugging print
 print("End of script.") # Debugging print
 """)
-
-from google.colab import userdata
-import os
-
-api_key = userdata.get("GEMINI_API_KEY")
-os.environ["GEMINI_API_KEY"] = api_key
-
-!streamlit run streamlit_app.py & npx localtunnel --port 8501
-
-from google.colab import userdata
-
-try:
-    api_key = userdata.get('GEMINI_API_KEY')
-    if api_key:
-        print("Successfully accessed GEMINI_API_KEY from Colab secrets.")
-    else:
-        print("GEMINI_API_KEY found in Colab secrets, but its value is empty.")
-except userdata.SecretNotFoundError:
-    print("GEMINI_API_KEY not found in Colab secrets. Please add it using the 🔑 icon in the left sidebar.")
-except Exception as e:
-    print(f"An unexpected error occurred while accessing secrets: {e}")
